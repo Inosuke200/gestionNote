@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GestionController;
-use App\Http\Controllers\connexionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,14 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// // Route::view('/tester', 'test');
+Auth::routes();
 
-// Route::view('/dashbord-super', 'dashbord-super');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/register',  [GestionController::class, 'register'])->name('post-register');
- 
-Route::post('/save', [GestionController::class, 'saveRegister'])->name('enregistrer');
+Route::get('/superadmin/home', [App\Http\Controllers\HomeController::class, 'superadminHome'])->name('superadmin.home')->middleware('is_admin');
 
-// Route::view('/login', 'connexion');
-Route::get('/login', [connexionController::class, 'connect'])->name('post-connect');
+
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

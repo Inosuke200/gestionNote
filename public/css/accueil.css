@@ -1,0 +1,13 @@
+body{
+    
+    background:url("../images/book.png") no-repeat;
+}
+.text{
+    width: 100%;
+    height: 150px;
+    opacity: 0.5;
+}
+.test{
+    font-size: 90px;
+    font-weight: bold;
+}

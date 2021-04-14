@@ -61,11 +61,11 @@
           <li class="active"><a href="/"><i class="bx bx-home"></i>Accueil</a></li>
           <li id="view_details"><a href=""> 
            <div class="dropdown">
-              <a class="btn  " href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="bx bx-user"></i> Ajouter 
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown" href="#">Ajouter un professeur</a>
+                <a class="dropdown" href="{{route('register')}}">Ajouter un professeur</a>
                 <a class="dropdown" href="#">Ajouter un élève</a>
                 <a class="dropdown" href="#">Ajouter un module</a>
               </div>
@@ -84,10 +84,7 @@
              {{ __('Déconnexion') }}
          </a>
 
-
-
-
-         <script>
+         {{-- <script>
             $(document).ready(function(){
         
               $('#view_details').on('click', function(){
@@ -97,7 +94,7 @@
             
             });
           
-          </script> 
+          </script>  --}}
 
 
 

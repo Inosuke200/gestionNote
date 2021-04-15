@@ -49,7 +49,7 @@
                             
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <button class="btn btn-danger d-none"><a class="nav-link classes" href="{{ route('register') }}">{{ __('Inscription') }}</a></button>
+                                    {{-- <button class="btn btn-danger "><a class="nav-link classes" href="{{ route('register') }}">{{ __('Inscription') }}</a></button> --}}
                                 </li>
                             @endif
                         @else

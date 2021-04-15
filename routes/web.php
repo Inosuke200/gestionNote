@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddprofController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,10 +24,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+//Route pour  la redirection sur le Dashbord du Superadmin
 Route::get('/superadmin/home', [App\Http\Controllers\HomeController::class, 'superadminHome'])->name('superadmin.home')->middleware('is_admin');
 
 
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route pour ajouter les profs
+Route::get('/add-prof', [App\Http\Controllers\AddprofController::class, 'addProf'] )->name('ajoutprof');
+Route::post('/save', [AddprofController::class, 'saveRegister'])->name('enregistrer');

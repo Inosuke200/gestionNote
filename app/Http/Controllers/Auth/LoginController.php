@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -35,44 +36,29 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        
     }
 
     public function login(Request $request)
     {
-
+        
         $input = $request->all();
-
-        $this->validate($request,[
+        $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-
-    {
-        if(auth()->user()->is_admin==true){
-            return redirect()->route('superadmin.home');
-        }else{
-            return redirect()->route('home');
+        
+        
+        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']]))
+        {
+            if (auth()->user()->is_admin == true) {
+                return redirect()->route('superadmin.home');
+            } else {
+                return redirect()->route('home');
+            }
+        } 
+        else {
+            return redirect()->route('login')->width('error', 'votre mot de passe et votre email sont incorrect');
         }
-    }else{
-        return redirect()->route('login')->width('error', 'votre mot de passe et votre email sont incorrect');
-    }  
-    
-    
-    
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }
